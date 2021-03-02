@@ -192,6 +192,10 @@ if has('nvim')
   tnoremap <C-v><Esc> <Esc>
 endif
 
+" Keymap for tab navigation.
+nnoremap <silent> [t :tabprev<CR>
+nnoremap <silent> ]t :tabnext<CR>
+
 " --------------------------------------------------------------------------
 " Autocmds.
 " --------------------------------------------------------------------------
