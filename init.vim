@@ -31,6 +31,7 @@ set nohlsearch " Turn off highlight search since you don't need it after you fin
 " Basic syntax support
 syntax on
 
+
 " Share the system clipboard with vim.
 set clipboard=unnamedplus
 
@@ -67,7 +68,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'mattn/emmet-vim'
 
 " Support multiple languages.
-" Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 
 " Fuzzy finder.
 Plug 'junegunn/fzf', { 'dir' : '~/.fzf', 'do' : { -> fzf#install() }}
@@ -133,9 +134,9 @@ if has('nvim')
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
-" ‚≠êÔ∏è‚≠êÔ∏è‚≠êÔ∏è‚≠êÔ∏è‚≠êÔ∏è symbol renaming.
+" ⭐️⭐️⭐️⭐️⭐️ symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
-" ‚≠êÔ∏è‚≠êÔ∏è‚≠êÔ∏è‚≠êÔ∏è‚≠êÔ∏è Apply codeAction to the selected region.
+" ⭐️⭐️⭐️⭐️⭐️ Apply codeAction to the selected region.
 " Example - <leader>aap for current paragraph.
 xmap <leader>a <Plug>(coc-codeaction-selected)
 nmap <leader>a <Plug>(coc-codeaction-selected)
@@ -185,6 +186,12 @@ let g:gruvbox_italic=1
 let g:gruvbox_termcolors=256
 colorscheme gruvbox
 
+" Send ESC to the terminal session inside vim.
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+  tnoremap <C-v><Esc> <Esc>
+endif
+
 " --------------------------------------------------------------------------
 " Autocmds.
 " --------------------------------------------------------------------------
@@ -205,5 +212,3 @@ autocmd BufNewFile,BufRead *.cpp nnoremap <leader>c :!g++ -std=c++11 %<CR>
 
 " typescript.
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
-
-
