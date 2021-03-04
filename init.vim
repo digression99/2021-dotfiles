@@ -158,7 +158,7 @@ nmap <leader>v :GFiles<CR>
 " ack-vim
 " Use ag when ag is avilable
 if executable('ag')
-  let g:ackprg = 'ag -- vimgrep --smart-case'
+  let g:ackprg = 'ag --vimgrep --smart-case'
 endif
 let g:ack_autoclose = 1 " autoclose ack.
 let g:ack_use_cword_for_empty_search = 1
