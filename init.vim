@@ -19,6 +19,12 @@ set nowritebackup
 set undodir=~/.vim/undodir
 set undofile
 
+" Text edit fail if hidden is not set.
+set hidden
+
+" Always show signcolumn.
+set signcolumn=yes
+
 set mouse=a " - Allow vim window to work with mouse control.
 set nowrap " - Don't wrap line after the text outbounds the window.
 set cmdheight=2 " - Set vim command height to 2
