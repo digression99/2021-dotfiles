@@ -98,6 +98,10 @@ Plug 'morhetz/gruvbox'
 " Change matched tag in HTML
 Plug 'AndrewRadev/tagalong.vim'
 
+" Git related plugins
+Plug 'tpope/vim-fugitive'
+Plug 'itchyny/lightline.vim'
+
 call plug#end()
 
 " --------------------------------------------------------------------------
@@ -185,7 +189,7 @@ let g:NERDTreeMinimalUI=1 " Remove unnecessary messages.
 nnoremap <leader>t :tabnew <Bar> term<CR>
 
 " Keymap for markdown related plugins.
-nnoremap <leader>g :Goyo<CR>
+nnoremap <leader>go :Goyo<CR>
 nnoremap <leader>h :Goyo 120<CR>
 nnoremap <leader>p :MarkdownPreview<CR>
 
@@ -204,6 +208,27 @@ endif
 " Keymap for tab navigation.
 nnoremap <silent> [t :tabprev<CR>
 nnoremap <silent> ]t :tabnext<CR>
+
+" tpope/vim-fugitive
+nmap <leader>gj :diffget //3<CR>
+nmap <leader>gf :diffget //2<CR>
+nmap <leader>gs :G<CR>
+" nmap <leader>gc :Gcommit<CR>
+nmap <leader>gp :Git push<CR>
+nmap <leader>gb :Git blame<CR>
+
+" itchyny/lightline.vim
+" Integration for vim-fugitive
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
 
 " --------------------------------------------------------------------------
 " Autocmds.
