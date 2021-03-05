@@ -95,6 +95,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'}
 " Colorscheme.
 Plug 'morhetz/gruvbox'
 
+" Change matched tag in HTML
+Plug 'AndrewRadev/tagalong.vim'
+
 call plug#end()
 
 " --------------------------------------------------------------------------
