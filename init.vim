@@ -217,6 +217,16 @@ nmap <leader>gs :G<CR>
 nmap <leader>gp :Git push<CR>
 nmap <leader>gb :Git blame<CR>
 
+" fzf-checkout
+" Open fzf window when branch checkout.
+nmap <leader>gk :GBranches<CR>
+
+" fzf.vim
+" Resize window.
+let g:fzf_layout = { 'window' : { 'width' : 0.8, 'height' : 0.8 }}
+" Put files on the top.
+let $FZF_DEFAULT_OPTS='--reverse'
+
 " itchyny/lightline.vim
 " Integration for vim-fugitive
 let g:lightline = {
