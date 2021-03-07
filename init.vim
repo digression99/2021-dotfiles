@@ -4,8 +4,8 @@
 
 set nocompatible
 filetype plugin indent on
-
-" set ruler - Show current cursor row, column. Might be the cause of the speed.
+   
+set ruler " - Show current cursor row, column. Might be the cause of the speed.
 set showmatch " - Move to matching braces.
 set nu " Show line numbers. relative number is moved because of the performance problem.
 set noswapfile " - Don't create swapfiles.
@@ -46,12 +46,6 @@ set expandtab " Use space character than tab character.
 set softtabstop=0 " Number of spaces a <Tab> counts for. When 0, the feature is off. (sts)
 set autoindent " Copy indent from current line when starting a new line.
 set smarttab " Inserts blanks on a <Tab> key (as per sw, ts and sts).
-
-" Highlight current cursor line.
-set cursorline
-
-" Set number line to relative.
-set relativenumber
 
 " --------------------------------------------------------------------------
 " Plugins
@@ -95,9 +89,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'}
-
-" Colorscheme.
-Plug 'morhetz/gruvbox'
 
 " Change matched tag in HTML
 Plug 'AndrewRadev/tagalong.vim'
@@ -200,15 +191,7 @@ nnoremap <leader>go :Goyo<CR>
 nnoremap <leader>h :Goyo 120<CR>
 nnoremap <leader>p :MarkdownPreview<CR>
 
-" colorscheme.
-let g:gruvbox_contrast_dark='hard'
-let g:gruvbox_italic=1
-let g:gruvbox_termcolors=256
-colorscheme gruvbox
-
-" Change cursorline color.
-hi CursorLineNR ctermbg=black
-hi CursorLine term=bold ctermbg=black
+colorscheme industry
 
 " Send ESC to the terminal session inside vim.
 if has('nvim')
@@ -231,6 +214,7 @@ nmap <leader>gk :GBranches<CR>
 let g:fzf_layout = { 'window' : { 'width' : 0.8, 'height' : 0.8 }}
 " put files on the top.
 let $FZF_DEFAULT_OPTS='--reverse'
+
 
 " itchyny/lightline.vim
 " Integration for vim-fugitive
