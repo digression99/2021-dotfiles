@@ -1,4 +1,3 @@
-
 " --------------------------------------------------------------------------
 " Vim Common Setings
 " --------------------------------------------------------------------------
@@ -37,7 +36,6 @@ set nohlsearch " Turn off highlight search since you don't need it after you fin
 " Basic syntax support
 syntax on
 
-
 " Share the system clipboard with vim.
 set clipboard=unnamedplus
 
@@ -48,6 +46,12 @@ set expandtab " Use space character than tab character.
 set softtabstop=0 " Number of spaces a <Tab> counts for. When 0, the feature is off. (sts)
 set autoindent " Copy indent from current line when starting a new line.
 set smarttab " Inserts blanks on a <Tab> key (as per sw, ts and sts).
+
+" Highlight current cursor line.
+set cursorline
+
+" Set number line to relative.
+set relativenumber
 
 " --------------------------------------------------------------------------
 " Plugins
@@ -100,6 +104,9 @@ Plug 'AndrewRadev/tagalong.vim'
 
 " Git related plugins
 Plug 'tpope/vim-fugitive'
+Plug 'stsewd/fzf-checkout.vim'
+
+" This gives a nice status bar.
 Plug 'itchyny/lightline.vim'
 
 call plug#end()
@@ -199,6 +206,10 @@ let g:gruvbox_italic=1
 let g:gruvbox_termcolors=256
 colorscheme gruvbox
 
+" Change cursorline color.
+hi CursorLineNR ctermbg=lightgrey
+hi CursorLine term=bold ctermbg=black
+
 " Send ESC to the terminal session inside vim.
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>
@@ -216,15 +227,9 @@ nmap <leader>gs :G<CR>
 " nmap <leader>gc :Gcommit<CR>
 nmap <leader>gp :Git push<CR>
 nmap <leader>gb :Git blame<CR>
-
-" fzf-checkout
-" Open fzf window when branch checkout.
 nmap <leader>gk :GBranches<CR>
-
-" fzf.vim
-" Resize window.
 let g:fzf_layout = { 'window' : { 'width' : 0.8, 'height' : 0.8 }}
-" Put files on the top.
+" put files on the top.
 let $FZF_DEFAULT_OPTS='--reverse'
 
 " itchyny/lightline.vim
