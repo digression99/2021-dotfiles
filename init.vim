@@ -207,7 +207,7 @@ let g:gruvbox_termcolors=256
 colorscheme gruvbox
 
 " Change cursorline color.
-hi CursorLineNR ctermbg=lightgrey
+hi CursorLineNR ctermbg=black
 hi CursorLine term=bold ctermbg=black
 
 " Send ESC to the terminal session inside vim.
