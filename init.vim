@@ -100,7 +100,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'}
 
 " Colorscheme.
-" Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 
 " Change matched tag in HTML
 Plug 'AndrewRadev/tagalong.vim'
@@ -127,7 +127,7 @@ endif
 
 " coc-nvim
 " coc extensions.
-let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-pairs', 'coc-tsserver', 'coc-eslint', 'coc-html', 'coc-css', 'coc-pyright', 'coc-styled-components', 'coc-prettier'] 
+let g:coc_global_extensions = ['coc-go', 'coc-json', 'coc-git', 'coc-pairs', 'coc-tsserver', 'coc-eslint', 'coc-html', 'coc-css', 'coc-pyright', 'coc-styled-components', 'coc-prettier'] 
 " run :Format to format the current buffer.
 command! -nargs=0 Format :call CocAction('format') 
 " press gh to hover.
@@ -204,12 +204,10 @@ nnoremap <leader>h :Goyo 120<CR>
 nnoremap <leader>p :MarkdownPreview<CR>
 
 " colorscheme.
-" let g:gruvbox_contrast_dark='hard'
-" let g:gruvbox_italic=1
-" let g:gruvbox_termcolors=256
-" colorscheme gruvbox
-
-colorscheme delek
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_italic=1
+let g:gruvbox_termcolors=256
+colorscheme gruvbox
 
 " Send ESC to the terminal session inside vim.
 if has('nvim')
@@ -243,9 +241,19 @@ let g:lightline = {
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
+      \   'gitbranch': 'FugitiveHead',
+      \   'filename': 'LightlineFilename',
       \ },
       \ }
+
+function! LightlineFilename()
+  let root = fnamemodify(get(b:, 'git_dir'), ':h')
+  let path = expand('%:p')
+  if path[:len(root)-1] ==# root
+    return path[len(root)+1:]
+  endif
+  return expand('%')
+endfunction
 
 " --------------------------------------------------------------------------
 " Autocmds.
