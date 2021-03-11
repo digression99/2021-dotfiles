@@ -51,10 +51,12 @@ set smarttab " Inserts blanks on a <Tab> key (as per sw, ts and sts).
 " set cursorline
 " Change cursorline color.
 " hi CursorLineNR ctermbg=black
-" hi CursorLine term=none cterm=none guibg=Grey40 
+" hi CursorLine term=none cterm=none guibg=none
 
 " " Set number line to relative.
 " set relativenumber
+
+set colorcolumn=80
 
 " --------------------------------------------------------------------------
 " Plugins
@@ -209,6 +211,8 @@ let g:gruvbox_italic=1
 let g:gruvbox_termcolors=256
 colorscheme gruvbox
 
+" colorscheme delek
+
 " Send ESC to the terminal session inside vim.
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>
@@ -226,6 +230,8 @@ nmap <leader>gs :G<CR>
 " nmap <leader>gc :Gcommit<CR>
 nmap <leader>gp :Git push<CR>
 nmap <leader>gb :Git blame<CR>
+
+"stsewd/fzf-checkout.vim
 nmap <leader>gk :GBranches<CR>
 let g:fzf_layout = { 'window' : { 'width' : 0.8, 'height' : 0.8 }}
 " put files on the top.
