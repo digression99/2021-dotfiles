@@ -256,6 +256,9 @@ function! LightlineFilename()
   return expand('%')
 endfunction
 
+" convenient utilities
+nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
+
 " --------------------------------------------------------------------------
 " Autocmds.
 " --------------------------------------------------------------------------
