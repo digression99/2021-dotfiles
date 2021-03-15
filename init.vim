@@ -48,14 +48,8 @@ set autoindent " Copy indent from current line when starting a new line.
 set smarttab " Inserts blanks on a <Tab> key (as per sw, ts and sts).
 
 " Highlight current cursor line.
-" set cursorline
-" Change cursorline color.
-" hi CursorLineNR ctermbg=black
-" hi CursorLine term=none cterm=none guibg=none
-
-" " Set number line to relative.
+set cursorline
 " set relativenumber
-
 set colorcolumn=80
 
 " --------------------------------------------------------------------------
@@ -209,9 +203,11 @@ nnoremap <leader>p :MarkdownPreview<CR>
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_italic=1
 let g:gruvbox_termcolors=256
+" colorscheme default
 colorscheme gruvbox
 
-" colorscheme delek
+hi CursorLine   ctermbg=black ctermfg=NONE term=bold cterm=bold
+hi CursorLineNR ctermbg=black
 
 " Send ESC to the terminal session inside vim.
 if has('nvim')
@@ -236,7 +232,6 @@ nmap <leader>gk :GBranches<CR>
 let g:fzf_layout = { 'window' : { 'width' : 0.8, 'height' : 0.8 }}
 " put files on the top.
 let $FZF_DEFAULT_OPTS='--reverse'
-
 
 " itchyny/lightline.vim
 " Integration for vim-fugitive
@@ -270,6 +265,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " markdown.
 autocmd BufRead,BufNewFile *.md set wrap
+autocmd BufRead,BufNewFile *.md set cursorline!
 autocmd FileType markdown normal zR
 
 " python.
