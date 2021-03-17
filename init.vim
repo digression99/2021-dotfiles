@@ -52,6 +52,7 @@ set cursorline
 " set relativenumber
 set colorcolumn=80
 
+
 " --------------------------------------------------------------------------
 " Plugins
 " --------------------------------------------------------------------------
@@ -206,7 +207,8 @@ let g:gruvbox_termcolors=256
 " colorscheme default
 colorscheme gruvbox
 
-hi CursorLine   ctermbg=black ctermfg=NONE term=bold cterm=bold
+" hi CursorLine   ctermbg=black ctermfg=NONE term=bold cterm=bold
+hi CursorLine   ctermbg=black ctermfg=NONE term=NONE cterm=NONE
 hi CursorLineNR ctermbg=black
 
 " Send ESC to the terminal session inside vim.
@@ -224,7 +226,7 @@ nmap <leader>gj :diffget //3<CR>
 nmap <leader>gf :diffget //2<CR>
 nmap <leader>gs :G<CR>
 " nmap <leader>gc :Gcommit<CR>
-nmap <leader>gp :Git push<CR>
+nmap <leader>gp :Git -c push.default=current push<CR>
 nmap <leader>gb :Git blame<CR>
 
 "stsewd/fzf-checkout.vim
