@@ -191,6 +191,7 @@ let g:NERDTreeCaseSensitiveSort = 1 " Add file sort.
 let g:NERDTreeNaturalSort = 1 
 let g:NERDTreeIgnore=[ '\.DS_Store$[[file]]' ] " Ignore ds store files.
 let g:NERDTreeMinimalUI=1 " Remove unnecessary messages.
+let g:NERDTreeWinSize=40
 
 " Keymap for opening tab.
 nnoremap <leader>t :tabnew <Bar> term<CR>
@@ -270,7 +271,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " markdown.
 autocmd BufRead,BufNewFile *.md set wrap
-autocmd BufRead,BufNewFile *.md set cursorline!
+autocmd BufRead,BufNewFile *.md set nocursorline
 autocmd FileType markdown normal zR
 
 " python.
