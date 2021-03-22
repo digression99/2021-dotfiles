@@ -124,7 +124,7 @@ endif
 
 " coc-nvim
 " coc extensions.
-let g:coc_global_extensions = ['coc-go', 'coc-json', 'coc-git', 'coc-pairs', 'coc-tsserver', 'coc-eslint', 'coc-html', 'coc-css', 'coc-pyright', 'coc-styled-components', 'coc-prettier'] 
+let g:coc_global_extensions = ['coc-go', 'coc-json', 'coc-git', 'coc-tsserver', 'coc-pyright' ]
 " run :Format to format the current buffer.
 command! -nargs=0 Format :call CocAction('format') 
 " press gh to hover.
