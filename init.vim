@@ -273,8 +273,8 @@ nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " markdown.
-autocmd BufRead,BufNewFile *.md set wrap
-autocmd BufRead,BufNewFile *.md set nocursorline
+autocmd FileType markdown set wrap
+autocmd FileType markdown set nocursorline
 autocmd FileType markdown normal zR
 
 " python.
