@@ -5,7 +5,7 @@
 set nocompatible
 filetype plugin indent on
    
-set ruler " - Show current cursor row, column. Might be the cause of the speed.
+" set ruler " - Show current cursor row, column. Might be the cause of the speed.
 set showmatch " - Move to matching braces.
 set nu " Show line numbers. relative number is moved because of the performance problem.
 set noswapfile " - Don't create swapfiles.
@@ -48,10 +48,9 @@ set autoindent " Copy indent from current line when starting a new line.
 set smarttab " Inserts blanks on a <Tab> key (as per sw, ts and sts).
 
 " Highlight current cursor line.
-set cursorline
+" set cursorline
 " set relativenumber
-set colorcolumn=80
-
+" set colorcolumn=80
 
 " --------------------------------------------------------------------------
 " Plugins
@@ -78,7 +77,10 @@ Plug 'tpope/vim-unimpaired'
 Plug 'mattn/emmet-vim'
 
 " Support multiple languages.
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
+
+Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'pangloss/vim-javascript'
 
 " Fuzzy finder.
 Plug 'junegunn/fzf', { 'dir' : '~/.fzf', 'do' : { -> fzf#install() }}
@@ -107,7 +109,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'stsewd/fzf-checkout.vim'
 
 " This gives a nice status bar.
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
@@ -124,7 +126,7 @@ endif
 
 " coc-nvim
 " coc extensions.
-let g:coc_global_extensions = ['coc-go', 'coc-json', 'coc-git', 'coc-tsserver', 'coc-pyright' ]
+let g:coc_global_extensions = [ 'coc-go', 'coc-json', 'coc-tsserver', 'coc-pyright', 'coc-git', 'coc-styled-components', 'coc-eslint', 'coc-prettier']
 " run :Format to format the current buffer.
 command! -nargs=0 Format :call CocAction('format') 
 " press gh to hover.
@@ -194,7 +196,7 @@ let g:NERDTreeCaseSensitiveSort = 1 " Add file sort.
 let g:NERDTreeNaturalSort = 1 
 let g:NERDTreeIgnore=[ '\.DS_Store$[[file]]' ] " Ignore ds store files.
 let g:NERDTreeMinimalUI=1 " Remove unnecessary messages.
-let g:NERDTreeWinSize=40
+let g:NERDTreeWinSize=35
 
 " Keymap for opening tab.
 nnoremap <leader>t :tabnew <Bar> term<CR>
@@ -205,15 +207,23 @@ nnoremap <leader>h :Goyo 120<CR>
 nnoremap <leader>p :MarkdownPreview<CR>
 
 " colorscheme.
-let g:gruvbox_contrast_dark='hard'
-let g:gruvbox_italic=1
-let g:gruvbox_termcolors=256
+"let g:gruvbox_contrast_dark='hard'
+"let g:gruvbox_italic=1
+"let g:gruvbox_termcolors=256
 " colorscheme default
 colorscheme gruvbox
 
-" hi CursorLine   ctermbg=black ctermfg=NONE term=bold cterm=bold
-hi CursorLine   ctermbg=black ctermfg=NONE term=NONE cterm=NONE
-hi CursorLineNR ctermbg=black
+" hi CursorLine   ctermbg=NONE ctermfg=NONE term=bold cterm=bold
+" hi CursorLine   ctermbg=black ctermfg=NONE term=NONE cterm=NONE
+"hi CursorLineNR ctermbg=black
+
+" highlight Cursor guifg=white guibg=black
+" highlight iCursor guifg=white guibg=steelblue
+" set guicursor=n-v-c:block-Cursor
+" set guicursor+=i:ver100-iCursor
+" set guicursor+=n-v-c:blinkon0
+" set guicursor+=i:blinkwait10
+
 
 " Send ESC to the terminal session inside vim.
 if has('nvim')
@@ -270,7 +280,7 @@ nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 " --------------------------------------------------------------------------
 
 " Highlight json file comment.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " markdown.
 autocmd FileType markdown set wrap
