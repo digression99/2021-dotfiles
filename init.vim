@@ -109,7 +109,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'stsewd/fzf-checkout.vim'
 
 " This gives a nice status bar.
-" Plug 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
@@ -126,7 +126,7 @@ endif
 
 " coc-nvim
 " coc extensions.
-let g:coc_global_extensions = [ 'coc-go', 'coc-json', 'coc-tsserver', 'coc-pyright', 'coc-git', 'coc-styled-components', 'coc-eslint', 'coc-prettier']
+let g:coc_global_extensions = ['coc-go', 'coc-json', 'coc-tsserver', 'coc-pyright', 'coc-git', 'coc-styled-components', 'coc-eslint', 'coc-prettier']
 " run :Format to format the current buffer.
 command! -nargs=0 Format :call CocAction('format') 
 " press gh to hover.
@@ -274,6 +274,9 @@ endfunction
 
 " convenient utilities
 nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
+
+"tagalong
+let g:tagalong_additional_filetypes= ['javascript']
 
 " --------------------------------------------------------------------------
 " Autocmds.
