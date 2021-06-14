@@ -111,6 +111,14 @@ Plug 'stsewd/fzf-checkout.vim'
 " This gives a nice status bar.
 Plug 'itchyny/lightline.vim'
 
+" Vim snippets.
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'mlaursen/vim-react-snippets' " snippets for react.
+
+" move, select with camel case.
+Plug 'bkad/CamelCaseMotion'
+
 call plug#end()
 
 " --------------------------------------------------------------------------
@@ -277,6 +285,15 @@ nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 
 "tagalong
 let g:tagalong_additional_filetypes= ['javascript']
+
+" SirVer/UltiSnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+
+" bkad/CamelCaseMotion
+let g:camelcasemotion_key= '<space>'
 
 " --------------------------------------------------------------------------
 " Autocmds.
