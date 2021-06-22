@@ -81,6 +81,9 @@ Plug 'mattn/emmet-vim'
 
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'pangloss/vim-javascript'
+" typescript syntax
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript' 
 
 " Fuzzy finder.
 Plug 'junegunn/fzf', { 'dir' : '~/.fzf', 'do' : { -> fzf#install() }}
@@ -134,7 +137,7 @@ endif
 
 " coc-nvim
 " coc extensions.
-let g:coc_global_extensions = ['coc-go', 'coc-json', 'coc-tsserver', 'coc-pyright', 'coc-git', 'coc-styled-components', 'coc-eslint', 'coc-prettier']
+let g:coc_global_extensions = [ 'coc-snippets',  'coc-go', 'coc-json', 'coc-tsserver', 'coc-pyright', 'coc-git', 'coc-styled-components', 'coc-eslint', 'coc-prettier']
 " run :Format to format the current buffer.
 command! -nargs=0 Format :call CocAction('format') 
 " press gh to hover.
@@ -287,7 +290,7 @@ nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 let g:tagalong_additional_filetypes= ['javascript']
 
 " SirVer/UltiSnips
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<leader><tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
