@@ -183,7 +183,7 @@ nmap <leader>qf <Plug>(coc-fix-current)
 " set statusline^=%{coc#status()}%{get(b:,'coc_current_function', '')}
 
 " emmet-vim
-let g:user_emmet_leader_key='<C-Z>' " Use Ctrl + Z to expand.
+let g:user_emmet_leader_key='<C-e>' " Use Ctrl + Z to expand.
 
 " fzf-vim
 " Open fuzzy finder window.
