@@ -319,4 +319,4 @@ autocmd BufNewFile,BufRead *.cpp nnoremap <leader>r :!./a.out<CR>
 autocmd BufNewFile,BufRead *.cpp nnoremap <leader>c :!g++ -std=c++11 %<CR>
 
 " typescript.
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=javascriptreact
