@@ -141,7 +141,7 @@ let g:coc_global_extensions = [ 'coc-snippets',  'coc-go', 'coc-json', 'coc-tsse
 " run :Format to format the current buffer.
 command! -nargs=0 Format :call CocAction('format') 
 " press gh to hover.
-nnoremap <silent> gh :call CocAction('doHover')<CR> 
+nnoremap <silent> <leader>h :call CocActionAsync('doHover')<cr>
 " Go to definition.
 nmap <silent> gd <Plug>(coc-definition)
 " Go to implementation.
@@ -203,6 +203,7 @@ nnoremap <leader>; :Ack!<Space>
 
 " preservim/nerdtree
 nmap <leader>e :NERDTreeToggle<CR>
+nmap <leader>w :NERDTreeFind<CR>
 let g:NERDTreeCaseSensitiveSort = 1 " Add file sort.
 let g:NERDTreeNaturalSort = 1 
 let g:NERDTreeIgnore=[ '\.DS_Store$[[file]]' ] " Ignore ds store files.
@@ -214,7 +215,7 @@ nnoremap <leader>t :tabnew <Bar> term<CR>
 
 " Keymap for markdown related plugins.
 nnoremap <leader>go :Goyo<CR>
-nnoremap <leader>h :Goyo 120<CR>
+" nnoremap <leader>h :Goyo 120<CR>
 nnoremap <leader>p :MarkdownPreview<CR>
 
 " colorscheme.
@@ -299,6 +300,12 @@ let g:UltiSnipsEditSplit="vertical"
 " bkad/CamelCaseMotion
 let g:camelcasemotion_key= '<space>'
 
+" coc-nvim
+let g:coc_filetype_map = {
+  \ 'javascriptreact.javascript.javascript-react.javascript_react': 'javascriptreact',
+  \ 'typescriptreact.javascript.typescript.javascriptreact.javascript-react.javascript_react': 'typescriptreact'
+  \ }
+
 " --------------------------------------------------------------------------
 " Autocmds.
 " --------------------------------------------------------------------------
@@ -319,4 +326,6 @@ autocmd BufNewFile,BufRead *.cpp nnoremap <leader>r :!./a.out<CR>
 autocmd BufNewFile,BufRead *.cpp nnoremap <leader>c :!g++ -std=c++11 %<CR>
 
 " typescript.
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=javascriptreact
+" autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=javascriptreact
+autocmd BufRead,BufNewFile *.jsx setlocal filetype=javascriptreact.javascript.javascript-react.javascript_react
+autocmd BufRead,BufNewFile *.tsx setlocal filetype=typescriptreact.javascript.typescript.javascriptreact.javascript-react.javascript_react
