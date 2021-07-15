@@ -122,6 +122,9 @@ Plug 'mlaursen/vim-react-snippets' " snippets for react.
 " move, select with camel case.
 Plug 'bkad/CamelCaseMotion'
 
+" emacs orgmode into vim
+Plug 'jceb/vim-orgmode'
+
 call plug#end()
 
 " --------------------------------------------------------------------------
@@ -130,6 +133,7 @@ call plug#end()
 
 " Set leader to ,
 let mapleader = ','
+let maplocalleader = '\\'
 
 if has('nvim') 
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1 " Support true color in nvim.
@@ -147,7 +151,7 @@ nmap <silent> gd <Plug>(coc-definition)
 " Go to implementation.
 nmap <silent> gi <Plug>(coc-implementation)
 " Find references.
-nmap <silent> gr <Plug>(coc-references)
+" nmap <silent> gr <Plug>(coc-references)
 " Find type definition.
 nmap <silent> ry <Plug>(coc-type-definition)
 " [START]--------------- Use tab key to autocomplete. 
@@ -305,6 +309,36 @@ let g:coc_filetype_map = {
   \ 'javascriptreact.javascript.javascript-react.javascript_react': 'javascriptreact',
   \ 'typescriptreact.javascript.typescript.javascriptreact.javascript-react.javascript_react': 'typescriptreact'
   \ }
+
+" vim-jsx-typescript color setting
+" dark red
+hi tsxTagName guifg=#E06C75
+hi tsxComponentName guifg=#E06C75
+hi tsxCloseComponentName guifg=#E06C75
+
+" orange
+hi tsxCloseString guifg=#F99575
+hi tsxCloseTag guifg=#F99575
+hi tsxCloseTagName guifg=#F99575
+hi tsxAttributeBraces guifg=#F99575
+hi tsxEqual guifg=#F99575
+
+" yellow
+hi tsxAttrib guifg=#F8BD7F cterm=italic
+
+" light-grey
+hi tsxTypeBraces guifg=#999999
+" dark-grey
+hi tsxTypes guifg=#666666
+
+hi ReactState guifg=#C176A7
+hi ReactProps guifg=#D19A66
+hi ApolloGraphQL guifg=#CB886B
+hi Events ctermfg=204 guifg=#56B6C2
+hi ReduxKeywords ctermfg=204 guifg=#C678DD
+hi ReduxHooksKeywords ctermfg=204 guifg=#C176A7
+hi WebBrowser ctermfg=204 guifg=#56B6C2
+hi ReactLifeCycleMethods ctermfg=204 guifg=#D19A66
 
 " --------------------------------------------------------------------------
 " Autocmds.
