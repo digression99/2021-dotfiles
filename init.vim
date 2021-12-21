@@ -79,10 +79,11 @@ Plug 'mattn/emmet-vim'
 " Support multiple languages.
 " Plug 'sheerun/vim-polyglot'
 
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'leafgarland/typescript-vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'pangloss/vim-javascript'
 " typescript syntax
-Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript' 
 
 " Fuzzy finder.
@@ -125,6 +126,12 @@ Plug 'bkad/CamelCaseMotion'
 " emacs orgmode into vim
 Plug 'jceb/vim-orgmode'
 
+" purescript
+Plug 'purescript-contrib/purescript-vim'
+
+" solidity syntax highlighter
+Plug 'tomlion/vim-solidity'
+
 call plug#end()
 
 " --------------------------------------------------------------------------
@@ -133,7 +140,7 @@ call plug#end()
 
 " Set leader to ,
 let mapleader = ','
-let maplocalleader = '\\'
+let maplocalleader = '\'
 
 if has('nvim') 
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1 " Support true color in nvim.
@@ -141,7 +148,7 @@ endif
 
 " coc-nvim
 " coc extensions.
-let g:coc_global_extensions = [ 'coc-snippets',  'coc-go', 'coc-json', 'coc-tsserver', 'coc-pyright', 'coc-git', 'coc-styled-components', 'coc-eslint', 'coc-prettier']
+let g:coc_global_extensions = [ 'coc-snippets',  'coc-go', 'coc-json', 'coc-tsserver', 'coc-pyright', 'coc-git', 'coc-styled-components', 'coc-eslint', 'coc-prettier', 'coc-metals']
 " run :Format to format the current buffer.
 command! -nargs=0 Format :call CocAction('format') 
 " press gh to hover.
@@ -361,5 +368,30 @@ autocmd BufNewFile,BufRead *.cpp nnoremap <leader>c :!g++ -std=c++11 %<CR>
 
 " typescript.
 " autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=javascriptreact
-autocmd BufRead,BufNewFile *.jsx setlocal filetype=javascriptreact.javascript.javascript-react.javascript_react
-autocmd BufRead,BufNewFile *.tsx setlocal filetype=typescriptreact.javascript.typescript.javascriptreact.javascript-react.javascript_react
+"autocmd BufRead,BufNewFile *.jsx setlocal filetype=javascriptreact.javascript.javascript-react.javascript_react
+"autocmd BufRead,BufNewFile *.tsx setlocal filetype=typescriptreact.javascript.typescript.javascriptreact.javascript-react.javascript_react
+
+"autocmd BufRead,BufNewFile *.jsx setlocal filetype=javascriptreact
+"autocmd BufRead,BufNewFile *.tsx setlocal filetype=typescriptreact
+autocmd BufRead,BufNewFile *.tsx,*.jsx setlocal filetype=typescriptreact
+
+" scala setting
+au BufRead,BufNewFile *.sbt,*.sc set filetype=scala
+" Expand decorations in worksheets
+nmap <space>ws <Plug>(coc-metals-expand-decoration)
+
+"Toggle panel with Tree Views
+nnoremap <silent> <space>t :<C-u>CocCommand metals.tvp<CR>
+
+" Toggle Tree view 'metalsPackages'
+nnoremap <silent> <space>tp :<C-u>CocCommand metals.tvp metalsPackages<CR>
+
+" Toggle tree view 'metalsCompile'
+nnoremap <silent> <space>tc :<C-u>CocCommand metals.tvp metalsCompile<CR>
+
+" Toggle tree view 'metalsBuild'
+nnoremap <silent> <space>tb :<C-u>CocCommand metals.tvp metalsBuild<CR>
+
+" Reveal current class (trait or object) in Treeview 'metalsPackages'
+nnoremap <silent> <space>tf :<C-u>CocCommand metals.revealInTreeView metalsPackages<CR>
+
