@@ -1,0 +1,16 @@
+set hlsearch
+set ignorecase
+set smartcase
+set incsearch
+set scrolloff=5 sidescrolloff=10
+set clipboard=unnamedplus,unnamed,ideaput
+
+let mapleader = ","
+
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'machakann/vim-highlightedyank'
+
+nnoremap <leader><space> :nohls<CR>
